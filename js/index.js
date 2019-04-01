@@ -7,7 +7,7 @@ for(let i = 0; i<data_arr.length; i++) {
 let temp=data_arr[i].split('\n')
   for(let j=0; j< temp.length; j++) {
     if(temp[j].trim()) {
-        data_arr_indexed.push([i,temp[j].trim()]);
+      data_arr_indexed.push([i,temp[j].trim()]);
     }
   }
 }
@@ -31,7 +31,6 @@ document.getElementById('advanced_search').addEventListener('input', function ()
   while (my_output.firstChild) {
     my_output.removeChild(my_output.firstChild);
   }
-  // console.log(this.value)
   if(returnIndex(this.value, data_arr_indexed)) {
     displaySnippet(data_arr[returnIndex(this.value, data_arr_indexed)].split('\n'), my_output);
   }
@@ -42,6 +41,7 @@ document.getElementById('advanced_search').addEventListener('focus', function ()
 });
 
   //--buttons
+   //---button_plus
 document.getElementById('btn_plus').addEventListener('click', function () {
   let item = document.getElementById('advanced_search');
   let index=returnIndex(item.value, data_arr_indexed);
@@ -53,10 +53,10 @@ document.getElementById('btn_plus').addEventListener('click', function () {
     item.value=data_arr[index].split('\n')[0].trim();
   } else {
     displaySnippet(data_arr[1].split('\n'), my_output)
-    item.value=data_arr[1].split('\n')[0]
+    item.value=data_arr[1].split('\n')[0];
   }
 });
-
+  // ---button_minus
 document.getElementById('btn_minus').addEventListener('click', function () {
   let item = document.getElementById('advanced_search');
   let index=returnIndex(item.value, data_arr_indexed);
@@ -68,29 +68,26 @@ document.getElementById('btn_minus').addEventListener('click', function () {
     item.value=data_arr[index].split('\n')[0].trim();
   }else {
     displaySnippet(data_arr[1].split('\n'), my_output)
-    item.value=data_arr[1].split('\n')[0]
+    item.value=data_arr[1].split('\n')[0];
 
   }
 })
-
-// last entry
+  //---last entry
 document.getElementById('last_entry').addEventListener('click', function () {
     let item = document.getElementById('advanced_search');
     while (my_output.firstChild) {
       my_output.removeChild(my_output.firstChild);
     }
     displaySnippet(data_arr[data_arr.length-1].split('\n'), my_output)
-    item.value=data_arr[data_arr.length-1].split('\n')[0]
+    item.value=data_arr[data_arr.length-1].split('\n')[0];
 
 })
-// first entry
+  //---first entry
 document.getElementById('first_entry').addEventListener('click', function () {
     let item = document.getElementById('advanced_search');
     while (my_output.firstChild) {
       my_output.removeChild(my_output.firstChild);
     }
     displaySnippet(data_arr[1].split('\n'), my_output)
-    item.value=data_arr[1].split('\n')[0]
-
+    item.value=data_arr[1].split('\n')[0];
 })
-//  console.log(data_arr_indexed)

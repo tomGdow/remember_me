@@ -1,17 +1,23 @@
-
+// DATA and VARIABLES
 data_arr=data.split('£');
-
-// function displaySnippet (arr, parentTag) {
-//   for(let i=0; i<arr.length; i++) {
-//     var el = document.createElement('div');
-//     if(arr[i].trim()) {
-//       var txt = document.createTextNode(arr[i].replace(/\s\s/g,'\u00A0\u00A0'));
-//       el.appendChild(txt);
-//       parentTag.appendChild(el);
-//     }
-//   }
-// }
-
 for(i=0; i<data_arr.length; i++) {
   displaySnippet(data_arr[i].split('\n'), document.getElementById('snippets'), 'div')
 }
+const snippets=document.getElementById('snippets');
+const collection=snippets.getElementsByTagName('div');
+// const navbar = document.getElementById("navbar");
+const stickyValue=document.getElementById("navbar").offsetTop;
+const stickyNode=document.getElementById('navbar');
+
+// set some ids;
+collection[1].setAttribute('id', `item_first`)
+collection[collection.length-1].setAttribute('id', 'item_last')
+for(i=0; i<collection.length; i++) {
+    if(~collection[i].innerHTML.search(/\(50\)/))
+      collection[i].setAttribute('id', `item_50`)
+}
+
+// Event Listeners
+window.addEventListener('scroll', function() {
+  stickyScroll({stickyValue:stickyValue, stickyNode:stickyNode});
+});
