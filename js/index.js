@@ -1,8 +1,9 @@
+'use strict'
 // DATA and VARIABLES
-data_arr=data.split('£');
+const data_arr=data.split('£');
 let my_output = document.getElementById('output');
 //--generate indexed array
-data_arr_indexed=[];
+const data_arr_indexed=[];
 for(let i = 0; i<data_arr.length; i++) {
 let temp=data_arr[i].split('\n')
   for(let j=0; j< temp.length; j++) {
