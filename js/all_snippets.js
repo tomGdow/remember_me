@@ -5,9 +5,7 @@ for(i=0; i<data_arr.length; i++) {
 }
 const snippets=document.getElementById('snippets');
 const collection=snippets.getElementsByTagName('div');
-// const navbar = document.getElementById("navbar");
-const stickyValue=document.getElementById("navbar").offsetTop;
-const stickyNode=document.getElementById('navbar');
+stickyScrollOne=stickyScrollFactory();
 
 // set some ids;
 collection[1].setAttribute('id', `item_first`)
@@ -16,8 +14,8 @@ for(i=0; i<collection.length; i++) {
     if(~collection[i].innerHTML.search(/\(50\)/))
       collection[i].setAttribute('id', `item_50`)
 }
-
-// Event Listeners
+ // Event Listeners
 window.addEventListener('scroll', function() {
-  stickyScroll({stickyValue:stickyValue, stickyNode:stickyNode});
+  // stickyScroll({stickyValue:stickyValue, stickyNode:stickyNode});
+  stickyScrollOne()
 });

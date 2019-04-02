@@ -27,10 +27,10 @@ function createTag({tagType='p', tagClass='', tagId=''}={}) {
 
 function returnIndex(key, arr2d) {
  for(i=0; i< arr2d.length; i++) {
-     if(~ arr2d[i].indexOf(key)) {
+    if(~ arr2d[i].indexOf(key)) {
          return arr2d[i][0];
      }
- }
+  }
 }
 
 function createTxtNode(txt) {
@@ -46,12 +46,25 @@ function appendNode(parent, child) {
   parent.appendChild(child);
 }
 
-function stickyScroll({stickyValue=20, stickyClass='sticky', stickyNode}={}) {
-  //w3schools, thanks!
+// function stickyScroll({stickyValue=20, stickyClass='sticky', stickyNode}={}) {
+//   //w3schools, thanks!
+//   stickyNode = stickyNode || document.getElementById('navbar');
+//   if (window.pageYOffset >= stickyValue) {
+//     stickyNode.classList.add(stickyClass)
+//   } else {
+//     stickyNode.classList.remove(stickyClass);
+//   }
+// } 
+
+function stickyScrollFactory({stickyValue, stickyClass='sticky', stickyNode}={}) {
+  stickyValue=stickyValue || document.getElementById("navbar").offsetTop;
   stickyNode = stickyNode || document.getElementById('navbar');
-  if (window.pageYOffset >= stickyValue) {
-    stickyNode.classList.add(stickyClass)
-  } else {
-    stickyNode.classList.remove(stickyClass);
-  }
-} 
+  return function stickyScroll() {
+  //w3schools, thanks!
+    if (window.pageYOffset >= stickyValue) {
+      stickyNode.classList.add(stickyClass)
+    } else {
+      stickyNode.classList.remove(stickyClass);
+    }
+  } 
+}

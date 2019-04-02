@@ -3,6 +3,7 @@ let data_log=my_update.replace(/£\(/g, '\%(');
 data_log=data_log.split('%');
 const stickyValue=document.getElementById("navbar").offsetTop;
 const stickyNode=document.getElementById('navbar');
+stickyScrollTwo=stickyScrollFactory();
 
 // generate HTML tags
 for(let i=0; i<data_log.length; i++) {
@@ -24,5 +25,5 @@ appendNodeById('log_container_header', el)
 
 //  Event Listeners
 window.addEventListener('scroll', function() {
-  stickyScroll({stickyNode:stickyNode, stickyValue:stickyValue});
+  stickyScrollTwo();
 });
