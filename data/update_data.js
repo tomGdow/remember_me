@@ -1,3 +1,4 @@
+'use strict';
 // Basic Update Data
  let my_update = `
     £(1)  powershell                                 // from VS code terminal
@@ -15,10 +16,10 @@
     £(9)  // back to powershell  
     £(10) cd data
     £(11) scp tomgxu:~/ecollege-rememberme .        // getting the modified file
-    £(12) Rename-Item  data.txt  old_data.txt
-    £(13) Copy-item  template.txt data.txt 
+    £(12) Rename-Item  data.js  old_data.js
+    £(13) Copy-item  template.js data.js
     £(14) bash                                   // from powershell on VS code terminal
-    £(12) vim data.txt 
+    £(12) vim data.js 
     £(13) :r ecollege-rememberme.txt                // from within back-ticks
     £(14) :wq
     £(15) exit

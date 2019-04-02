@@ -1,3 +1,4 @@
+'use strict';
 
 let data = ` SOME TO REMEMBER
 
