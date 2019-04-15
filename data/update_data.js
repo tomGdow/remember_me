@@ -1,14 +1,18 @@
 'use strict';
 // Basic Update Data
- let my_update = `
+const repoName="remember_me";
+const remoteFileDirectory="~/bin/jsdefinitions/ecollege-rememberme";
+const remoteFileName=remoteFileDirectory.split('/').pop();
+
+let my_update = `
     £(1)  powershell                                 // from VS code terminal
     £(2)  ssh tomgxu
     £(3)  // on remote (xu virtual machine)
     £(4)  cp bin/jsdefinitions/ecollege-rememberme .
-    £(5)  vim ecollege-rememberme                    // working with copy
-    `
-    //£(5)  s/\v(^\s+)(\(\d+\))/\1£\2/g                // Global substitution      
-    my_update+=`£(6)  \u0073\u002f\u005c\u0076\u0028\u005e\u005c\u0073\u002b\u0029\u0028\u005c\u0028\u005c\u0064\u002b\u005c\u0029\u0029\u002f\u005c\u0031\u00a3\u005c\u0032\u002f\u0067                // Global substitution`;
+    £(5)  vim ecollege-rememberme                    // working with copy `
+
+    //£(5)  %s/\v(^\s+)(\(\d+\))/\1£\2/g                // Global substitution      
+    my_update+=`£(6)  \u0025s\/\\v\(^\\s\+\)\(\\\(\\d+\\\)\)\/\\1£\\2\/g`;
     my_update+=`
                                                      // very-magic regex
     £(7)  :wq
@@ -31,7 +35,7 @@
 const txtString=[
   `NOTES`,
  `(1) The primary data are stored on the virtual machine 'xu',`,
- `(2) Directory:  '/bin/jsdefinitions/ecollege-rememberme'`,
- `(3) The file 'ecollege-rememberme' will be downloaded`,
- `(4) github repo (private): https://github.com/tomGdow/remember_me`
+ `(2) Directory:  '${remoteFileDirectory}'`,
+ `(3) The file '${remoteFileName}' will be downloaded`,
+ `(4) github repo (private): https://github.com/tomGdow/${repoName}`
 ];

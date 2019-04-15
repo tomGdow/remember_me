@@ -1,7 +1,7 @@
 // DATA and VARIABLES
 'use strict'
-let data_log=my_update.replace(/£\(/g, '\%(');
-data_log=data_log.split('%');
+let data_log=my_update.replace(/£\(/g, '@(');
+data_log=data_log.split('@');
 const stickyValue=document.getElementById("navbar").offsetTop;
 const stickyNode=document.getElementById('navbar');
 const stickyScrollTwo=stickyScrollFactory();
