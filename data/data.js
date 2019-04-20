@@ -1,5 +1,5 @@
 'use strict'
-let data = ` 
+let data = `
 
 SOME TO REMEMBER
 
@@ -14,212 +14,237 @@ SOME TO REMEMBER
        Mutates: yes
        MNEMONIC: PuLe
   
+  £(4)  ...PUSH
        (a) myarr.splice(myarr.length,1,'newitem')
        (b) myarr[myarr.length]="newitem"
        (c) myarr.push(new item)               // all equivalent //  PUSH
   
-  £(4)  UNSHIFT adds ONE OR MORE elements to beginning of arr and
+  £(5)  UNSHIFT adds ONE OR MORE elements to beginning of arr and
        returns length of array
        (a) myarr.unshift('zero')
        (b) myarr.splice(0,0,'beforezero')     // all equivalent // unshift
        Mutates: yes
        MNEMONIC: (0, 0, UN)
   
-  £(5)  SHIFT removes first element from array and returns it 
+  £(6)  SHIFT removes first element from array and returns it 
        (a) myarr.shift()
        (b) myarr.splice(0,1)                  // all equivalent shift
     
-  £(6)  POP  removes last element and returns it
+  £(7)  POP  removes last element and returns it
        myarr.pop()
        myarr.splice(myarr.length-1, 1)        // all equivalent pop  
   
-  £(7)  typeof null is object (The BIG mistake!)  
+  £(8)  typeof null is object (The BIG mistake!)  
   
-  £(8)  function must have a return value 
+  £(9)  function must have a return value 
   
-  £(9)  Math.floor(Math.random()*(max-min+1))+min;
+  £(10)  Math.floor(Math.random()*(max-min+1))+min;
   
-  £(10) const myarr=[[1,2], [3,4], [5,6]];
+  £(11) const myarr=[[1,2], [3,4], [5,6]];
          for(let i=0; i< myarr.length; i++) 
            for(let j=0; j<myarr[i].length; j++) 
              myarr[i][j]=Math.pow(myarr[i][j],2);
   
-  £(11) for(let i of arr)
+  £(12) for(let i of arr)
          for(let j of i)
            c(j*1000)
   
-  £(12) for(let i in myarr)
+  £(13) for(let i in myarr)
          for (let j in myarr[i])
            myarr[i][j]=Math.pow(myarr[i][j],2)
 
-  £(13) modify in place
+  £(14) modify in place
         var myarr = [1,2,3,4,5]
         for(let i=0; i<myarr.length; myarr3[i++]=Math.pow(myarr3[i-1],2));
         console.log(myarr);
   
-  £(14) function makemulti ({rowNo=3, colNo=2, fn=(a,b)=>[a,b]}={}) {
+  £(15) function makemulti ({rowNo=3, colNo=2, fn=(a,b)=>[a,b]}={}) {
          let temp = new Array (rowNo);
            for(let i=0; i < rowNo; i++) {
              temp[i]=new Array(colNo);
                for(let j=0; j<colNo; j++)  {
-               temp[i][j]=fn(i,j);
-              }
-           }
-         return temp;
-       }
+               temp[i][j]=fn(i,j); } }
+         return temp; }
   
-  £(15) (a) throw 'hello'
+  £(16) (a) throw 'hello'
        (b) throw 42
        (c) throw true
        (d) throw new Error('message')
        (e) throw new myFunction('message')
   
-  £(16) (a) search: (str) => // ? first-index-of : -1
+  £(17) String.prototype.search()
+       (a) search: (str) => // ? first-index-of : -1
        (b) match:  (str) => // ? [] | null
        (c) exec:   (//)  => str ? [] | null
        (d) test    (//)  => str ? true : false
+
+  £(18) ...String.prototype.search()
+
        "test-exec-regex"
        "match-search-string"
        indexOf for plain strings. search for regex
+
+  £(19) ... String.prototype.search()
        (a) search method: search for regex match; return first index or -1;
        (b) match: matches string against regex. return [] or null 
        (c) exec: regex search for match is string. return [] or null
        (d) test: regex search for match. return true or false
   
-  £(17) *>+>= !! multiplication higher precedence than add/subtract 
+  £(20) *>+>= !! multiplication higher precedence than add/subtract 
   
-  £(18) const z = new Date()     
+  £(21) const z = new Date()     
        z.setDate(z.getDate()+1)    // returns milliseconds
        z.getDate()                
   
-  £(19) Math.floor(Math.random())   // gives 0   
+  £(22) Math.floor(Math.random())   // gives 0   
 
          for(x=0; x<100;x++){
            t.push(Math.floor(Math.random()));
          }
         c(Math.max.apply(null,t)) // 0
   
-  £(20)  <input list ="mylist" id="myinput">
+  £(23)  <input list ="mylist" id="myinput">
         <datalist id=mylist>
           <option="myoption">
         <datalist>
         REMEMBER target myinput with JS to get value !!
   
-  £(21)  if statement - what is within parens evaluates to truthy or falsy!
+  £(24)  if statement - what is within parens evaluates to truthy or falsy!
   
-  £(22)  window.document
+  £(25)  window.document
               .navigator
               .screen    .availHeight
                          .availWidth
                          .height      // Jason Manibog
                          .width       // Jason Manibog
+
+  £(26)  window.document
               .location 
               .history 
               .innerHeight
               .innerWidth
    
-  £(23)  var whoami = window.prompt(msg, default)
+  £(27)  PROMPT
+        
+        var whoami = window.prompt(msg, default)
           // dialog box  (a) msg
                          (b) input box with value = default
                          (c) buttons: OK and cancel
+
+  £(28)  CONFIRM
+
         var bool = confirm(msg);
           // dialog box  (a) msg
                          (b) buttons: OK and cancel
+
+  £(29)  ALERT 
+
         window.alert(msg)
           // dialog box  (a) msg
                          (b) btn OK
   
-  £(24)  Number.isInteger(10)  // Jason Manibog
+  £(30)  Number.isInteger(10)  // Jason Manibog
   
-  £(25)  (a) Array.prototype.slice.call(arguments)
+
+  £(31)  Array arguments
+
+        (a) Array.prototype.slice.call(arguments)
         (b) Array.from(arguments) 
         (c) [...arguments] 
+
+  £(32)  ... Array arguments 
 
         fn(a) {
           a = 42;
           return [a, arguments[0]]
         }
-        fn(17)                    // [42, 42]
+
+        fn(23)                    // [42, 42]
+
+  £(33)  ... Array arguments
 
         fns(a) {
-        'use strict';
-        a=42;
-        return [a, arguments[0]];
+          'use strict';
+          a=42;
+          return [a, arguments[0]];
         }
-        fns(17)                   // [42,17] 
+
+        fns(23)                   // [42,17] 
   
-  £(26)  'use strict' must come first in script or function
+  £(34)  'use strict' must come first in script or function
   
-  £(27)  null and undefined ABSTRACTLY and STRICTLY equal
+  £(35)  null and undefined ABSTRACTLY and STRICTLY equal
         nu==un (and in no other place in language)
   
-  £(28)  NaN not equal to anything, including itself
+  £(36)  NaN not equal to anything, including itself
         There is only one value in JS not equal to itself, and that 
         is NaN 
-  £(29)  When null or undefined appear on either side of '==',
+  £(37)  When null or undefined appear on either side of '==',
         true ONLY IF BOTH SIDES are one of undefined or null
-  £(30)  Empty string coerces to zero (ROOT OF ALL EVIL)
+  £(38)  Empty string coerces to zero (ROOT OF ALL EVIL)
   
-  £(31)  == PREFERS to compare numbers
+  £(39)  == PREFERS to compare numbers
   
-  £(32)  truthy not the same as coercion
+  £(40)  truthy not the same as coercion
   
-  £(33)  [] coerces to empty string which coerces to zero
+  £(41)  [] coerces to empty string which coerces to zero
   
-  £(34)  "0" =="" is falsei.  YOU ARE COMPARING STRINGS. 
+  £(42)  "0" =="" is falsei.  YOU ARE COMPARING STRINGS. 
   
-  £(35)  arr=[100, 200,300,400]
+  £(43)  Array: slice, splice and sort
+
+        arr=[100, 200,300,400]
         arr.slice(1,3)  // [200,300] // new array
         arr.splice(0,0,0);arr  // [0, 100, 200, 300, 400]
         arr.sort(function (a,b) {return a-b})
   
-  £(36)  MOO Month (but not in date string) is zero-based
+  £(44)  MOO Month (but not in date string) is zero-based
   
-  £(37)  var today =new Date()
+  £(45)  var today =new Date()
         new Date(value) 
         new Date('dateString')
         new Date(year, monthIndex, day, hour, minute, seconds, millisec) 
   
-  £(38)  new Date(Date.UTC(year, monthIndex,day,hour,minute,seconds,milli))
+  £(46)  new Date(Date.UTC(year, monthIndex,day,hour,minute,seconds,milli))
   
-  £(39)  Date.now() is not a constructor
+  £(47)  Date.now() is not a constructor
   
-  £(40)  All give milliseconds:
+  £(48)  All give milliseconds:
         (a) Date.now() 
         (b) mydate.getTime()
         (c) mydate.valueOf() 
         (d) Number(mydate)
   
-  £(41)  A day is 84 000 000 milliseconds
+  £(49)  A day is 84 000 000 milliseconds
   
-  £(42)  International date notation is YYYY-MM-DD
+  £(50)  International date notation is YYYY-MM-DD
   
-  £(43)  unixzero = new Date(Date.UTC(1970,0))
+  £(51)  unixzero = new Date(Date.UTC(1970,0))
   
-  £(44)  var moon  = new Date("July 20, 1969 00:20:15")
+  £(52)  var moon  = new Date("July 20, 1969 00:20:15")
         var moon2 = new Date("1969-07-20T00:20:15")
         var moon3 = new Date(1969, 06, 20, 0, 20, 18)
         var moon4 = new Date(Date.UTC(1969,6,20,0, 20, 18));
   
-  £(45)  today.toLocaleDateString('en-gb', {weekday:'long', month:'long',
+  £(53)  today.toLocaleDateString('en-gb', {weekday:'long', month:'long',
                                          day:'numeric', year:'numeric'})
         //  "Saturday, 9 March 2019"
   
-  £(46)  str.splice NO SUCH THING 
+  £(54)  str.splice NO SUCH THING 
   
-  £(47)  str.slice(begin, end) 
+  £(55)  str.slice(begin, end) 
   
-  £(48)  str.substring(begin, end)
+  £(56)  str.substring(begin, end)
   
-  £(49)  str.substr(begin, howmany) 
+  £(57)  str.substr(begin, howmany) 
   
-  £(50)  "thomas".slice(2,4) 
+  £(58)  "thomas".slice(2,4) 
         "thomas".substring(2,4)
         "thomas".substr(2,2)      // all give 'om'
   
   
-  £(51)  if statements access if truthy or falsy
-  £(52)  falsy list
+  £(59)  if statements access if truthy or falsy
+  £(60)  FALSY list
 
         (a) 0
         (b) false
@@ -229,40 +254,56 @@ SOME TO REMEMBER
         (f) undefined    // 6
         (g) document.all (!!)
 
+
+  £(61)  ...FALSY list
+
         // Obvious 3 + Nan-null-un
          
   
-  £(53)  = (assignment.  Low precedence (3) and right-to-left )
+  £(62)  = (assignment.  Low precedence (3) and right-to-left )
   
-  £(54)  && looks at expr 1, if FALSE returns expr1 otherwise returns expr2
+  £(63)  && looks at expr 1, if FALSE returns expr1 otherwise returns expr2
   
-  £(55)  !! looks at expr1, if TRUE returns expr1 otherwise returns expr2
+  £(64)  !! looks at expr1, if TRUE returns expr1 otherwise returns expr2
   
-  £(56)  ! looks at expr1 and IF TRUE returns false
+  £(65)  ! looks at expr1 and IF TRUE returns false
   
-  £(57)  Key:  the && and || operators actually return the value of one
+  £(66)  Key:  the && and || operators actually return the value of one
         of the specified operands
   
-  £(58)  Some operator precedences 
+  £(67)  Some operator precedences (abridged)
 
            20   grouping
-           19   . and ['myval']
-           18   ++ (postfix) 
+           19   . and ['myval'] and new (args) and function call
+           18   new (no args)
+           17   postfix ++ --
+           16   unary plus, unary negation, ! (logical not), ~(Bitwise NOT)
            15   exponentiation
+  
+  £(68)  ... Some operator precedences (abridged)
+
            14   multiplication and division and remainder(%)
-           13   add subtract
-           10   == 
+           13   add, subtract
+           11   <, >, <=, >=
+           10   ==, ===, !=, !==
+            9   &  (Bitwise AND)
+            8   |  (Bitwise OR)
+
+  £(69)  ... Some operator precedences (abridged)
+
             6   &&
             5   || 
-            3   = 
+            4   ternary operator
+            3   assignment. =, += etc
+            2   yield  
             1   , (comma) 
-  
-  £(59) do{} while() 
 
-  £(60)  document.getElementsByTagName('h4').item(0).innerHTML
+  £(70) do{} while() 
+
+  £(71)  document.getElementsByTagName('h4').item(0).innerHTML
         document.getElementsByTagName('h4')[0].innerHTML
                                        // both equivalent
-  £(61)  Three ways of adding a class
+  £(72)  Three ways of adding a class
          (a) para.setAttribute('class', 'divclass');
          (b) para.classList.add('divclass')         // also remove
          (c) para.className="divclass"
@@ -271,88 +312,86 @@ SOME TO REMEMBER
               document.getElementsByClassName('divclass')[0]
               .classList.remove('divclass')
 
-  £(62)  element.getAttribute('class')
+  £(73)  element.getAttribute('class')
         element.setAttribute('class', 'tom')
         element.removeAttribute('class', 'tom')
 
-  £(63)  const el=document.createElement('h4');
+  £(74)  const el=document.createElement('h4');
         const txt=document.createTextNode('Hello There');
         el.appendChild(txt);
         //document.body.appendChild(el);
         document.getElementById('myid').appendChild(el);
         el.setAttribute('class', 'tom');
 
-  £(64)  Note:  document.createElement('ul', { is : 'expanding-list' })
+  £(75)  Note:  document.createElement('ul', { is : 'expanding-list' })
 
-  £(65)  window.location.search 
+  £(76)  window.location.search 
         // "?myname=thomas&myemail=thomasgdowling%40gmail.com"
-        window.location.search.substring(1)
+        window.location.search.substring(3)
         // "myname=thomas&myemail=thomasgdowling%40gmail.com"
-        window.location.search.substring(1).split('&')[0].split('=')[0]
+        window.location.search.substring(3).split('&')[0].split('=')[0]
         //  "myname"
 
-  £(66) document.forms[0].elements.name.value 
+  £(77) document.forms[0].elements.name.value 
        document.getElementById('myform').elements.name.value
        document.getElementById('myform').elements[0].value
        // equivalent // "thomas"
 
-  £(67) potential targets for submission
+  £(78) potential targets for submission
        (a) database
        (b) script (go-between)
        (c) webpage
 
-  £(68) form button type=submit                   !! 
+  £(79) form button type=submit                   !! 
 
-  £(69) gopnames(document.forms[0])
+  £(80) gopnames(document.forms[0])
        //  [ "0", "1", "2" ]
 
        gopnames(document.forms[0].elements)
        //  [ "0", "1", "2", "myemail", "btn", "myname" ]  !!
 
-  £(70) document.forms['myform']['name'].value
+  £(81) document.forms['myform']['name'].value
        document.forms[0].name.value
        document.forms[0].elements.name.value
        // all equivalent (basicform.html)
 
-  £(71) document.forms['myform'].length
+  £(82) document.forms['myform'].length
        document.forms[0].length
        document.forms[0].elements.length
        // all equivalent 
 
-  £(72) document.forms.myform.method
+  £(83) document.forms.myform.method
        document.forms.myform.onsubmit
        document.forms.myform.action 
        // "http://127.0.0.1:5500/sendmeaway.html"
 
-  £(73) input type="submit"> defines a button for submitting the form
+  £(84) input type="submit"> defines a button for submitting the form
         data to a form-handler.
 
-  £(74) Unicode 0Aa -> 48-65-97 (ascii-decimal)   Cavan-Galway-Kerry
+  £(85) Unicode 0Aa -> 48-65-97 (ascii-decimal)   Cavan-Galway-Kerry
                0Aa -> 30-41-61 (ascii-hex,unicode) Kerry-Kerry-Down; 
        uc<lc
        ucltlc
 
-  £(75) "thomas".charAt("thomas".length -1)
+  £(86) "thomas".charAt("thomas".length -1)
  
-  £(77)  Objects are mutable
+  £(87)  Objects are mutable
 
-        const a = {
-          foo: 'bar'
-        }
+        const a = { foo: 'bar' }
         const b=a;
         b.foo="daz"
         a.foo      // daz 
         a===b;     // true
 
-  £(77) Strings are immutable
+  £(88) Strings are immutable
 
         let aa = "test";
         const bb=aa;
-        aa = aa.slice(2);
+        aa = aa.slice(4);
         bb;                  //   test
         aa;                  //   st
 
-  £(78) Arrays are mutable
+  £(89) Arrays are mutable
         
         const aaa = ["foo", 'bar'];
         const bbb =aaa;
@@ -360,9 +399,10 @@ SOME TO REMEMBER
         aaa;                 //   [ "foo", "bar", "baz" ] 
         bbb;                 //   [ "foo", "bar", "baz" ]
 
-  £(79) For mutable values, updating state applies across all 
+  £(90) For mutable values, updating state applies across all 
        references to that variable.
+  
+  £(91) Operator precedence three great examples
 
-
- `;
+`;
 
