@@ -55,7 +55,7 @@ SOME TO REMEMBER
 
   £(14) modify in place
         var myarr = [1,2,3,4,5]
-        for(let i=0; i<myarr.length; myarr3[i++]=Math.pow(myarr3[i-1],2));
+        for(let i=0; i<myarr.length; myarr[i++]=Math.pow(myarr[i-1],2));
         console.log(myarr);
   
   £(15) function makemulti ({rowNo=3, colNo=2, fn=(a,b)=>[a,b]}={}) {
@@ -402,7 +402,33 @@ SOME TO REMEMBER
   £(90) For mutable values, updating state applies across all 
        references to that variable.
   
-  £(91) Operator precedence three great examples
+  £(91) Operator precedence/associativity  examples
+
+       [1] a+b*c/d                                                       
+           20+3*4/6              // 22    (IBM goodie)   
+
+  £(91) ... Operator precedence/associativity  examples
+
+       [2] var b = 9;
+           var c = 5;                                                    
+           var a = b = c;                                                
+            a                     // 5     (IBM)                          
+
+   £(92)  JS Primitives (UNBONSS)  
+         A primitive value is a member of one of the following built-in types: 
+         [1] Undefined 
+         [2] Null 
+         [3] Boolean
+         [4] Number 
+         [5] String
+         [6] Symbol 
+
+   £(92)  ...  JS Primitives (UNBONSS)  
+
+         [1] An object is a member of the built-in type Object;
+         [2] A function is a callable object. 
+         [3] A function that is associated with an object via a 
+             property is called a method.
 
 `;
 
