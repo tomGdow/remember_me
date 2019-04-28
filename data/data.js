@@ -111,18 +111,22 @@ SOME TO REMEMBER
   
   £(24)  if statement - what is within parens evaluates to truthy or falsy!
   
-  £(25)  window.document
-              .navigator
-              .screen    .availHeight
-                         .availWidth
-                         .height      // Jason Manibog
-                         .width       // Jason Manibog
+  £(25) BOM 
 
-  £(26)  window.document
-              .location 
-              .history 
-              .innerHeight
-              .innerWidth
+         [1] the window object and all of its subobjects
+
+         [2] window  .document
+                     .navigator .clipboard    (userAgent)    
+                     .screen    .availHeight
+                              .availWidth
+                              .height       // Jason Manibog
+                              .width        // Jason Manibog
+
+  £(26)  window  .document
+                .location 
+                .history 
+                .innerHeight
+                .innerWidth
    
   £(27)  PROMPT
         
@@ -144,6 +148,9 @@ SOME TO REMEMBER
                          (b) btn OK
   
   £(30)  Number.isInteger(10)  // Jason Manibog
+
+        [1]  Note Number.isInteger(5.0) is true
+        [2]  Math.floor(value) ==== value is polyfill // key
   
 
   £(31)  Array arguments
@@ -407,14 +414,14 @@ SOME TO REMEMBER
        [1] a+b*c/d                                                       
            20+3*4/6              // 22    (IBM goodie)   
 
-  £(91) ... Operator precedence/associativity  examples
+  £(92) ... Operator precedence/associativity  examples
 
        [2] var b = 9;
            var c = 5;                                                    
            var a = b = c;                                                
             a                     // 5     (IBM)                          
 
-   £(92)  JS Primitives (UNBONSS)  
+   £(93)  JS Primitives (UNBONSS)  
          A primitive value is a member of one of the following built-in types: 
          [1] Undefined 
          [2] Null 
@@ -423,12 +430,168 @@ SOME TO REMEMBER
          [5] String
          [6] Symbol 
 
-   £(92)  ...  JS Primitives (UNBONSS)  
+   £(94)  ...  JS Primitives (UNBONSS)  
 
          [1] An object is a member of the built-in type Object;
          [2] A function is a callable object. 
          [3] A function that is associated with an object via a 
              property is called a method.
+   £(95) Number 
+  
+        var a = 2;             // number
+        var b = new Number(2)  // object
+        var c = Number("2");   // number
+
+        a==b                   // True
+        a===b                  // False  // !!
+        a==c                   // True
+        a===c                  // True   // !! 
+
+   £(96) ... Number 
+
+        Number('123')          // 123    // number
+        Number('')             // 0   
+        Number('foo')          // NaN
+        Number('100a')         // NaN
+        Number(null)           // 0      // !!
+        Number(undefined)      // NaN    // !! 
+
+   £(97) Object.create polyfill
+     
+         if(!Object.create) {
+           Object.create=function (o) {
+             function F() {}
+             F.prototype=o;
+             return new F();
+           };
+         }
+
+    £(98) myarr = [1, "hello", {}, [], function F(){}, true, typeof true,
+                  null, undefined]
+
+         var type_of= myarr.map(function (a) {
+           return typeof a
+         })
+
+         var o_toString = myarr.map(function (a) {
+          return Object.prototype.toString.call(a);
+         }) 
+
+    £(99)                type_of      O_toString
+
+         1             "number"     "[object Number]"
+         "hello"       "string"     "[object String]" 
+         {}            "object"     "[object Object]" 
+         []            "object"     "[object Array]" 
+         F() {}        "function"   "[object Function]" 
+         true          "boolean"    "[object Boolean]"
+         typeof true   "string"     "[object String]"
+         null          "object"     "[object Null]"
+         undefined     "undefined"  "[object Undefined]"
+  
+    £(100)  & return  1 if both operands 1
+           | returns 1 if both operands 0
+           ^ returns 1 if both operands different
+             (returns 0 if both operands the same)
+
+           ~ inverts bits ~N = -(N+1) 
+          
+    £(101)  15 & 9  1111 & 1001 => 1001 => 9
+           15 | 9  1111 | 1001 => 1111 => 15
+           15 ^ 9  1111 ^ 1001 => 0110 => 6
+           ~15                         => -16
+           ~9                          => -10
+
+    £(102)  var x=100;
+           var y=1;
+           x^=y;
+           y^=x;
+           x^=y;
+           x             // 1
+           y             // 100 
+
+   £(103)  expr1 && expr2 
+
+          returns expr1 if it is FALSE or can be converted to FALSE
+          
+          OTHERWISE returns expr2 
+
+          false && 'cats' is false
+          true &&  'cats' is 'cats'
+   
+   £(104)  expr1 || expr2 
+     
+          Returns expr1 if it is TRUE or can be converted to TRUE; 
+          
+          OTHERWISE returns expr2
+
+          false || 'cats' is 'cats'
+          true  ||  'cats' is  true
+
+   £(105)  ! expr1
+          
+          if TRUE return FALSE
+          OTHERWISE return TRUE 
+
+   £(106)  Short-circuits  and logical operators
+
+         false && anything is FALSE
+         true || anything  is TRUE 
+
+  £(107) <noscript>Your browser does not support JavaScript!</noscript>
+ 
+  £(108) Constants
+          [1] block scoped (like let) 
+          [2] not added to global window object
+          [2] cannot be reassigned or redeclared
+          [3] must be assigned
+          [4] const declaration creates read-only ref to variable
+              but value itself is not immutable (arr or obj)
+          [5] Kyle. const not a value that does not change
+              but a variable that cannot be re-assigned    
+
+  £(109) typeof 100.234.toFixed(2)
+        
+        // "string"
+
+ £(110) Error Object
+
+       [1] When Error is used like a function -- without new,
+           it will return an Error object. 
+
+       [2] A mere call to Error will produce the same output that
+           constructing an Error object via the new keyword would.
+
+ £(112) Window.open
+
+       [1] window.open(url?: string, 
+                    target?: string, 
+                  features?: string, 
+                   replace?: boolean): 
+
+       [2] var url ="https://edition.cnn.com/"
+           window.open(url, "cnny", "width=600,height=400", true)
+
+
+
+    £(113) Any object of which the value is not 
+
+        [1] undefined
+        [2] null 
+
+        INCLUDING A BOOLEAN OBJECT WHOSE VALUE IS FALSE, 
+        (but not the boolean primiive false) evaluates to
+        true when passed to a conditional statement. 
+
+    £(114) null value
+
+          a primitive value that represents the intentional
+          absence of any object value (ECMA 2018)
+
+    £(115) undefined value
+         
+          a primitive value used when a variable has not been assigned
+          a value (ECMA 2018)
 
 `;
 
